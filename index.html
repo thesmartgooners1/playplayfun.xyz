@@ -1,0 +1,1846 @@
+
+<!--             _
+              _ooOoo_
+             o8888888o
+             88" . "88
+             (| -_- |)
+             O\  =  /O
+          ____/`---'\____
+        .'  \\|     |//  `.
+       /  \\|||  :  |||//  \
+      /  _||||| -:- |||||_  \
+      |   | \\\  -  /'| |   |
+      | \_|  `\`---'//  |_/ |
+      \  .-\__ `-. -'__/-.  /
+    ___`. .'  /--.--\  `. .'___
+ ."" '<  `.___\_<|>_/___.' _> \"".
+| | :  `- \`. ;`. _/; .'/ /  .' ; |
+\  \ `-.   \_\_`. _.'_/_/  -' _.' /
+ `-.`___`-.__\ \___  /__.-'_.'_.-' -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>BawlOne Live - Home</title>
+    <meta name="title" content="BawloneLive">
+    <meta name="description" content="The Best Platform to watch football live matches, 2D and 3D lottery results. ">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://bawlonelive.com">
+    <meta property="og:title" content="BawloneLive">
+    <meta property="og:description"
+          content="The Best Platform to watch football live matches, 2D and 3D lottery results. ">
+    <meta property="og:image"
+          content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://bawlonelive.com">
+    <meta property="twitter:title" content="BawloneLive">
+    <meta property="twitter:description"
+          content="The Best Platform to watch football live matches, 2D and 3D lottery results. ">
+    <meta property="twitter:image"
+          content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+    <!-- MDB icon -->
+    <!-- Font Awesome -->
+<link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+<!-- Google Fonts -->
+<link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+    rel="stylesheet"
+/>
+<link rel="stylesheet" href="https://bawlonelive.com/frontend/css/style.css">
+
+        <style>
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .min-vh-75 {
+            min-height: 75vh;
+        }
+
+        /* Hero Background Elements */
+        .hero-background-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element.element-1 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element.element-2 {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .floating-element.element-3 {
+            width: 60px;
+            height: 60px;
+            top: 40%;
+            right: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        /* Hero Content */
+        .hero-title {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            line-height: 1.6;
+        }
+
+        .hero-stats .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-stats .stat-number {
+            font-size: 1.5rem;
+            color: #ffc107;
+        }
+
+        .hero-stats .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Hero Image */
+        .hero-image-container {
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-logo {
+            max-height: 350px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.3) 0%, transparent 70%);
+            border-radius: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.05);
+            }
+        }
+
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .floating-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 193, 7, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1.2rem;
+            animation: floatIcon 3s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-icon.icon-1 {
+            top: 20%;
+            right: -10px;
+            animation-delay: 0s;
+        }
+
+        .floating-icon.icon-2 {
+            bottom: 30%;
+            left: -10px;
+            animation-delay: 1s;
+        }
+
+        .floating-icon.icon-3 {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatIcon {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(10deg);
+            }
+        }
+
+        /* Section Badges */
+        .section-badge {
+            display: inline-block;
+        }
+
+        .max-width-600 {
+            max-width: 600px;
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #f8f9fa;
+            line-height: 1;
+            z-index: 1;
+        }
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .icon-wrapper i {
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .feature-benefits {
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Screenshots Section */
+        .screenshots-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* Carousel Indicators */
+        .screenshot .carousel-indicators li {
+            background: #708198;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+        }
+
+        .screenshot .carousel-indicators .active {
+            background: #667eea;
+            transform: scale(1.2);
+        }
+
+        /* Screenshot Images */
+        .screenshot img,
+        .screenshot-img {
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .screenshot img:hover,
+        .screenshot-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .screenshot-wrapper {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-wrapper:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+        }
+
+        .download-background-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .download-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: downloadFloat 8s ease-in-out infinite;
+        }
+
+        .download-element.element-1 {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .download-element.element-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        @keyframes downloadFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.1;
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+                opacity: 0.3;
+            }
+        }
+
+        .download-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-stats {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .download-stat {
+            text-align: center;
+        }
+
+        .download-btn {
+            border-radius: 15px !important;
+            padding: 1rem 2rem !important;
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .download-btn .btn-text {
+            text-align: left;
+        }
+
+        .download-btn .btn-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            line-height: 1;
+        }
+
+        .download-btn .btn-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .download-features .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .download-features .feature-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Phone Mockup */
+        .phone-mockup {
+            position: relative;
+            display: inline-block;
+        }
+
+        .phone-frame {
+            width: 200px;
+            height: 400px;
+            background: #1a1a1a;
+            border-radius: 30px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .floating-badges {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .floating-badge {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 193, 7, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1rem;
+            animation: downloadFloatIcon 4s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-badge.badge-1 {
+            top: 20%;
+            right: -20px;
+            animation-delay: 0s;
+        }
+
+        .floating-badge.badge-2 {
+            bottom: 30%;
+            left: -20px;
+            animation-delay: 1.5s;
+        }
+
+        .floating-badge.badge-3 {
+            top: 60%;
+            right: -30px;
+            animation-delay: 3s;
+        }
+
+        @keyframes downloadFloatIcon {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(15deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: 70vh;
+                text-align: center;
+                padding: 3rem 0;
+            }
+
+            .min-vh-75 {
+                min-height: auto;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-stats {
+                margin-bottom: 2rem;
+            }
+
+            .hero-stats .stat-item {
+                padding: 0.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero-buttons .btn {
+                padding: 0.75rem 2rem;
+                font-size: 1rem;
+            }
+
+            .display-4 {
+                font-size: 2.5rem;
+            }
+
+            .display-5 {
+                font-size: 2rem;
+            }
+
+            .feature-card {
+                margin-bottom: 2rem;
+            }
+
+            .feature-number {
+                font-size: 2.5rem;
+                top: 15px;
+                right: 15px;
+            }
+
+            .icon-wrapper {
+                width: 70px;
+                height: 70px;
+            }
+
+            .icon-wrapper i {
+                font-size: 1.5rem;
+            }
+
+            .phone-frame {
+                width: 150px;
+                height: 300px;
+                padding: 15px;
+            }
+
+            .download-stats {
+                padding: 1.5rem;
+            }
+
+            .download-btn {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .download-btn .btn-content {
+                justify-content: center;
+            }
+
+            .floating-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .floating-badge {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .display-4 {
+                font-size: 2rem;
+            }
+
+            .display-5 {
+                font-size: 1.75rem;
+            }
+
+            .hero-stats .col-4 {
+                margin-bottom: 1rem;
+            }
+
+            .feature-card {
+                padding: 2rem 1.5rem !important;
+            }
+
+            .download-btn {
+                padding: 0.75rem 1.5rem !important;
+            }
+
+            .download-btn .btn-content {
+                gap: 0.5rem;
+            }
+
+            .download-btn i {
+                font-size: 1.5rem !important;
+            }
+
+            /* Ads Responsive */
+            .ad-card {
+                height: 300px;
+            }
+
+            .ad-content {
+                padding: 1.5rem;
+            }
+
+            .ad-title {
+                font-size: 1.2rem;
+            }
+
+            .custom-control {
+                width: 50px;
+                height: 50px;
+            }
+
+            .carousel-control-prev.custom-control {
+                left: 10px;
+            }
+
+            .carousel-control-next.custom-control {
+                right: 10px;
+            }
+
+            .custom-indicators {
+                bottom: -50px;
+            }
+
+            .custom-indicators button {
+                width: 40px;
+                height: 4px;
+                margin: 0 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ad-card {
+                height: 250px;
+            }
+
+            .ad-content {
+                padding: 1rem;
+            }
+
+            .ad-title {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .ad-visit-btn {
+                padding: 0.5rem 1rem !important;
+                font-size: 0.9rem;
+            }
+
+            .custom-control {
+                width: 40px;
+                height: 40px;
+            }
+
+            .control-icon {
+                font-size: 1rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button Hover Effects */
+        .btn {
+            transition: all 0.3s ease;
+            cursor: pointer !important;
+            pointer-events: auto !important;
+            position: relative;
+            z-index: 10;
+            text-decoration: none !important;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Ensure hero buttons are clickable */
+        .hero-buttons .btn {
+            position: relative;
+            z-index: 100;
+            pointer-events: auto !important;
+            cursor: pointer !important;
+        }
+
+        /* Fix any potential overlay issues */
+        .hero-section * {
+            pointer-events: auto;
+        }
+
+        .floating-element,
+        .floating-icon,
+        .floating-badge {
+            pointer-events: none !important;
+        }
+
+        /* Ads Section Styles - Optimized */
+        .ads-section {
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        .ads-header {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Modern Ads Carousel - Optimized */
+        .modern-ads-carousel {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .ad-card {
+            position: relative;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .ad-image-container {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .ad-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ad-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(102, 126, 234, 0.7);
+            opacity: 0;
+        }
+
+        .ad-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        }
+
+        .ad-card:hover .ad-overlay {
+            opacity: 1;
+        }
+
+        .ad-badge {
+            background: rgba(255, 193, 7, 0.9);
+            color: #000;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .ad-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .ad-visit-btn {
+            background: #667eea;
+            border: none;
+            font-weight: 600;
+        }
+
+        .ad-visit-btn:hover {
+            background: #764ba2;
+        }
+
+        /* Custom Indicators - Simplified */
+        .custom-indicators {
+            bottom: -40px;
+            margin-bottom: 0;
+        }
+
+        .custom-indicators button {
+            width: 40px;
+            height: 4px;
+            border: none;
+            border-radius: 2px;
+            background: rgba(102, 126, 234, 0.3);
+            margin: 0 5px;
+        }
+
+        .custom-indicators button.active {
+            background: #667eea;
+        }
+
+        .indicator-dot {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        /* Custom Controls - Simplified */
+        .custom-control {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-control-prev.custom-control {
+            left: 15px;
+        }
+
+        .carousel-control-next.custom-control {
+            right: 15px;
+        }
+
+        .control-icon {
+            color: #667eea;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Simplified Ad Loading */
+        .ad-image {
+            transition: opacity 0.3s ease;
+        }
+
+        /* Ad Placeholder and Error Handling */
+        .ad-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #6c757d;
+            border-radius: 15px;
+        }
+
+        .ad-placeholder i {
+            opacity: 0.5;
+        }
+
+        .ad-placeholder p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* No Ads Message */
+        .no-ads-message {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            border: 2px dashed #dee2e6;
+        }
+
+        .no-ads-icon i {
+            opacity: 0.6;
+        }
+
+        /* Image Error Handling */
+        .ad-image {
+            transition: opacity 0.3s ease;
+        }
+
+        .ad-image[src*="placeholder"] {
+            object-fit: contain;
+            background: #f8f9fa;
+        }
+
+        /* Improved Ad Card Hover */
+        .ad-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .ad-card:hover .ad-image {
+            transform: scale(1.05);
+        }
+
+        .ad-card:hover .ad-overlay {
+            opacity: 1;
+        }
+
+        /* Enhanced Ad Button */
+        .ad-visit-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ad-visit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .ad-visit-btn:active {
+            transform: translateY(0);
+        }
+
+        .ad-visit-btn.btn-clicked {
+            transform: scale(0.95);
+            background: #764ba2 !important;
+        }
+
+        .ad-card:hover .ad-content {
+            transform: translateY(0);
+        }
+
+        /* Ensure content is always visible */
+        .ad-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            z-index: 2;
+        }
+
+        /* Button States */
+        .ad-visit-btn:disabled,
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Optimized Image Loading */
+        .ad-image {
+            background: #f8f9fa;
+            min-height: 200px;
+        }
+    </style>
+    <!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}</style>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js"></script>
+
+<script src=" https://cdn.jsdelivr.net/npm/axios@1.5.1/dist/axios.min.js "></script>
+<script>
+    // Import the functions you need from the SDKs you need
+    // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
+    // import { getFirebase } from "https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js";
+
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyCqtoMJXJPGZprtL20p2V0NFtuy9p-64rM",
+        authDomain: "bawlone-live.firebaseapp.com",
+        projectId: "bawlone-live",
+        storageBucket: "bawlone-live.appspot.com",
+        messagingSenderId: "704698327118",
+        appId: "1:704698327118:web:512e548e6174fa8caaa31f",
+        measurementId: "G-JSERNNK23X"
+    };
+
+    // Initialize Firebase
+    //const app = initializeApp(firebaseConfig);
+    //const analytics = getAnalytics(app);
+    //const firebase = getFirebase(app);
+
+    firebase.initializeApp(firebaseConfig);
+
+    const messaging = firebase.messaging();
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    initFirebaseMessagingRegistration();
+
+
+    messaging.onMessage(function({data:{body,title}}){
+        new Notification(title, {body});
+    });
+</script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark d-lg-block bg-primary" style="z-index: 2000;">
+    <div class="container-fluid">
+        <!-- Navbar brand -->
+        <a class="navbar-brand nav-link" href="/">
+            <img src="https://bawlonelive.com/frontend/img/logo.jpeg" height="30" alt="Logo"> Bawlone Live
+        </a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+            aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarExample01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                        href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="https://bawlonelive.com/football">
+                        Football
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Right elements -->
+            <div class="navbar-nav d-flex">
+                                    <li class="nav-item me-3 me-lg-0 ">
+                        <a class="nav-link " href="https://bawlonelive.com/login">
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item me-3 me-lg-0 ">
+                        <a class="nav-link " href="https://bawlonelive.com/register">
+                            Register Account
+                        </a>
+                    </li>
+                                
+            </div>
+            <ul class="navbar-nav d-flex flex-row">
+                <!-- Icons -->
+                
+                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar -->
+
+    <!-- Hero Section -->
+    <section class="hero-section bg-gradient-primary text-white py-5 position-relative overflow-hidden">
+        <div class="hero-background-elements">
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+        </div>
+        <div class="container position-relative">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-6 fade-in-up">
+                    <div class="hero-badge mb-3">
+                        <span class="badge bg-white bg-opacity-20 px-3 py-2 rounded-pill">
+                            <i class="fas fa-star me-2"></i>Most Trusted Football App
+                        </span>
+                    </div>
+                    <h1 class="display-3 fw-bold mb-4 hero-title">
+                        Welcome to <span class="text-warning">Bawlone Live</span>
+                    </h1>
+                    <p class="lead mb-4 hero-subtitle">
+                        Your ultimate destination for football updates, live scores, and comprehensive sports coverage.
+                        Join thousands of football fans worldwide.
+                    </p>
+                    <div class="hero-stats mb-4">
+                        <div class="row g-3">
+                            <div class="col-4">
+                                <div class="stat-item text-center">
+                                    <div class="stat-number fw-bold">10K+</div>
+                                    <div class="stat-label">Active Users</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item text-center">
+                                    <div class="stat-number fw-bold">500+</div>
+                                    <div class="stat-label">Live Matches</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item text-center">
+                                    <div class="stat-number fw-bold">24/7</div>
+                                    <div class="stat-label">Support</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3 flex-wrap hero-buttons">
+                        <a href="/football" class="btn btn-light btn-lg px-5 py-3 rounded-pill shadow-lg">
+                            <i class="fas fa-futbol me-2"></i>View Football
+                        </a>
+                        <a href="https://apkpure.com/bawlonelive/com.bawlonelive.pro" target="_blank"
+                            class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
+                            <i class="fas fa-download me-2"></i>Download App
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center fade-in-right">
+                    <div class="hero-image-container">
+                        <div class="hero-image-wrapper">
+                            <img src="https://bawlonelive.com/frontend/img/logo.jpeg" alt="Bawlone Live" class="img-fluid hero-logo">
+                            <div class="hero-glow"></div>
+                        </div>
+                        <div class="floating-icons">
+                            <div class="floating-icon icon-1">
+                                <i class="fas fa-futbol"></i>
+                            </div>
+                            <div class="floating-icon icon-2">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="floating-icon icon-3">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Features Section -->
+    <section class="features-section py-5 position-relative">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <div class="section-badge mb-3">
+                        <span class="badge bg-primary bg-opacity-10 text-primary px-4 py-2 rounded-pill">
+                            <i class="fas fa-star me-2"></i>Features
+                        </span>
+                    </div>
+                    <h2 class="display-4 fw-bold mb-3">Why Choose <span class="text-primary">Bawlone Live</span>?</h2>
+                    <p class="lead text-muted max-width-600 mx-auto">
+                        Experience the best in sports coverage with our comprehensive features designed for football
+                        enthusiasts
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center p-5 h-100 position-relative">
+                        <div class="feature-number">01</div>
+                        <div class="feature-icon mb-4">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-futbol"></i>
+                            </div>
+                        </div>
+                        <h4 class="fw-bold mb-3">Live Football Coverage</h4>
+                        <p class="text-muted mb-4">Get real-time updates, live scores, and comprehensive football coverage
+                            from leagues around the world with instant notifications.</p>
+                        <div class="feature-benefits">
+                            <div class="benefit-item">
+                                <i class="fas fa-check text-success me-2"></i>
+                                <span>Live match scores</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check text-success me-2"></i>
+                                <span>Match predictions</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check text-success me-2"></i>
+                                <span>Team statistics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center p-5 h-100 position-relative">
+                        <div class="feature-number">02</div>
+                        <div class="feature-icon mb-4">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                        </div>
+                        <h4 class="fw-bold mb-3">Mobile-First Experience</h4>
+                        <p class="text-muted mb-4">Download our mobile app for the best experience with push notifications,
+                            offline access, and seamless performance.</p>
+                        <div class="feature-benefits">
+                            <div class="benefit-item">
+                                <i class="fas fa-check text-success me-2"></i>
+                                <span>Push notifications</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check text-success me-2"></i>
+                                <span>Offline mode</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check text-success me-2"></i>
+                                <span>Fast loading</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center p-5 h-100 position-relative">
+                        <div class="feature-number">03</div>
+                        <div class="feature-icon mb-4">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <h4 class="fw-bold mb-3">Real-time Analytics</h4>
+                        <p class="text-muted mb-4">Stay updated with the latest scores, news, and match updates as they
+                            happen with our advanced analytics dashboard.</p>
+                        <div class="feature-benefits">
+                            <div class="benefit-item">
+                                <i class="fas fa-check text-success me-2"></i>
+                                <span>Live updates</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check text-success me-2"></i>
+                                <span>Performance stats</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check text-success me-2"></i>
+                                <span>Trend analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- App Screenshots Section -->
+    <section class="screenshots-section py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold mb-3">App Screenshots</h2>
+                    <p class="lead text-muted">See what makes our app the best choice for football fans</p>
+                </div>
+            </div>
+            <div class="screenshot-carousel">
+    <div id="appScreenshotsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#appScreenshotsCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Screenshots 1"></button>
+            <button type="button" data-bs-target="#appScreenshotsCarousel" data-bs-slide-to="1"
+                aria-label="Screenshots 2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="screenshot-wrapper">
+                            <img src="https://bawlonelive.com/frontend/img/ss/ss1.PNG" class="img-fluid screenshot-img"
+                                alt="App Screenshot 1">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="screenshot-wrapper">
+                            <img src="https://bawlonelive.com/frontend/img/ss/ss2.PNG" class="img-fluid screenshot-img"
+                                alt="App Screenshot 2">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="screenshot-wrapper">
+                            <img src="https://bawlonelive.com/frontend/img/ss/ss3.PNG" class="img-fluid screenshot-img"
+                                alt="App Screenshot 3">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="screenshot-wrapper">
+                            <img src="https://bawlonelive.com/frontend/img/ss/ss4.PNG" class="img-fluid screenshot-img"
+                                alt="App Screenshot 4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="screenshot-wrapper">
+                            <img src="https://bawlonelive.com/frontend/img/ss/ss5.PNG" class="img-fluid screenshot-img"
+                                alt="App Screenshot 5">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="screenshot-wrapper">
+                            <img src="https://bawlonelive.com/frontend/img/ss/ss6.PNG" class="img-fluid screenshot-img"
+                                alt="App Screenshot 6">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="screenshot-wrapper">
+                            <img src="https://bawlonelive.com/frontend/img/ss/ss1.PNG" class="img-fluid screenshot-img"
+                                alt="App Screenshot 7">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="screenshot-wrapper">
+                            <img src="https://bawlonelive.com/frontend/img/ss/ss2.PNG" class="img-fluid screenshot-img"
+                                alt="App Screenshot 8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#appScreenshotsCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#appScreenshotsCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section py-5 position-relative overflow-hidden">
+        <div class="download-background-elements">
+            <div class="download-element element-1"></div>
+            <div class="download-element element-2"></div>
+        </div>
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="download-content">
+                        <div class="download-badge mb-3">
+                            <span class="badge bg-warning bg-opacity-20 text-warning px-4 py-2 rounded-pill">
+                                <i class="fas fa-download me-2"></i>Get Started Now
+                            </span>
+                        </div>
+                        <h2 class="display-4 fw-bold mb-4 text-white">
+                            Download Our <span class="text-warning">App Today</span>
+                        </h2>
+                        <p class="lead mb-4 text-white-50">
+                            Join thousands of football fans worldwide. Get the complete Bawlone Live experience
+                            with live scores, predictions, and real-time updates right in your pocket.
+                        </p>
+
+                        <div class="download-stats mb-4">
+                            <div class="row g-4">
+                                <div class="col-6">
+                                    <div class="download-stat text-center">
+                                        <div class="stat-icon mb-2">
+                                            <i class="fas fa-users fa-2x text-warning"></i>
+                                        </div>
+                                        <div class="stat-text">
+                                            <div class="stat-number text-white fw-bold">50K+</div>
+                                            <div class="stat-label text-white-50">Downloads</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="download-stat text-center">
+                                        <div class="stat-icon mb-2">
+                                            <i class="fas fa-star fa-2x text-warning"></i>
+                                        </div>
+                                        <div class="stat-text">
+                                            <div class="stat-number text-white fw-bold">4.8</div>
+                                            <div class="stat-label text-white-50">Rating</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="download-buttons d-flex gap-3 flex-wrap">
+                            <a href="https://apkpure.com/bawlonelive/com.bawlonelive.pro" target="_blank"
+                                class="btn btn-warning btn-lg px-5 py-3 rounded-pill shadow-lg download-btn">
+                                <div class="btn-content">
+                                    <i class="fab fa-google-play fa-2x mb-2"></i>
+                                    <div class="btn-text">
+                                        <div class="btn-label">Get it on</div>
+                                        <div class="btn-name">Google Play</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="https://bawlonelive.com/apk/bawlonelive.apk"
+                                class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill download-btn">
+                                <div class="btn-content">
+                                    <i class="fas fa-download fa-2x mb-2"></i>
+                                    <div class="btn-text">
+                                        <div class="btn-label">Direct</div>
+                                        <div class="btn-name">Download</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="download-features mt-4">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="feature-item text-center">
+                                        <i class="fas fa-shield-alt text-warning mb-2"></i>
+                                        <div class="feature-text text-white-50 small">100% Safe</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="feature-item text-center">
+                                        <i class="fas fa-bolt text-warning mb-2"></i>
+                                        <div class="feature-text text-white-50 small">Fast Download</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="feature-item text-center">
+                                        <i class="fas fa-mobile-alt text-warning mb-2"></i>
+                                        <div class="feature-text text-white-50 small">Mobile Optimized</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <div class="download-image-container">
+                        <div class="phone-mockup">
+                            <div class="phone-frame">
+                                <img src="https://bawlonelive.com/frontend/img/logo.jpeg" alt="Bawlone Live App"
+                                    class="phone-screen">
+                            </div>
+                            <div class="floating-badges">
+                                <div class="floating-badge badge-1">
+                                    <i class="fas fa-futbol"></i>
+                                </div>
+                                <div class="floating-badge badge-2">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="floating-badge badge-3">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<footer class="page-footer bg-primary font-small indigo mt-5">
+    <div class="container text-md-left">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <h5 class="font-weight-bold text-white text-uppercase mt-3 mb-4">About Us</h5>
+                <p class="text-light">Bawlone ပွဲများ, 2D 3D များ, အားကစားနှင့် စိတ်ဝင်စားစရာများကို Free
+                    ကြည့်ရှုလိုက်ပါ။</p>
+                <small class="text-white-50">Myanmar Timezone:
+                    2025-10-22 01:44:16 PM</small><br>
+                <small class="text-white-50">Thailand Timezone:
+                    2025-10-22 02:14:16 PM</small>
+            </div>
+            <hr class="clearfix w-100 d-md-none">
+            <div class="col-md-3 mx-auto">
+                <h5 class="font-weight-bold text-white text-uppercase mt-3 mb-4">Useful Links</h5>
+                <ul class="list-unstyled text-white">
+                    <li>
+                        <a href="/" class="text-light hover:text-secondary">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://bawlonelive.com/football" class="text-light">Football</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="clearfix w-100 d-md-none">
+            <div class="col-md-3 mx-auto">
+                <h5 class="font-weight-bold text-uppercase text-white mt-3 mb-4">Download App</h5>
+                <ul class="list-unstyled button-container">
+                    <li>
+                        <a href="https://apkpure.com/bawlonelive/com.bawlonelive.pro" target="_blank"><img
+                                src="https://bawlonelive.com/frontend/img/googleplay-download.png" width="200"
+                                alt=""></a>
+                    </li>
+                    <li class="mt-2">
+                        <a href="https://bawlonelive.com/apk/bawlonelive.apk"><img
+                                src="https://bawlonelive.com/frontend/img/direct-download.png" width="200"
+                                alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center text-light py-3">
+        © 2025 BawloneLive. All rights reserved.
+        Powered By <a href="https://www.mcodey.com" target="_blank" class="text-warning"> MCodey</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+
+
+<!-- jQuery -->
+<script type="text/javascript" src="https://bawlonelive.com/frontend/js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://bawlonelive.com/frontend/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://bawlonelive.com/frontend/js/bootstrap.min.js"></script>
+
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://bawlonelive.com/frontend/js/mdb.min.js"></script>
+
+<!-- MDB -->
+<script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Ensure buttons are clickable
+            $('.hero-buttons .btn').on('click', function(e) {
+                e.preventDefault();
+                var href = $(this).attr('href');
+
+                if (href && href !== '#') {
+                    if ($(this).attr('target') === '_blank') {
+                        window.open(href, '_blank');
+                    } else {
+                        window.location.href = href;
+                    }
+                }
+            });
+
+            // Add click feedback
+            $('.btn').on('mousedown', function() {
+                $(this).addClass('btn-active');
+            });
+
+            $('.btn').on('mouseup mouseleave', function() {
+                $(this).removeClass('btn-active');
+            });
+
+            // Debug: Log button clicks
+            $('.hero-buttons .btn').on('click', function() {
+                console.log('Button clicked:', $(this).attr('href'));
+            });
+
+            // Enhanced Ads Carousel
+            $('#modernAdsCarousel').on('slide.bs.carousel', function(e) {
+                var $active = $(this).find('.carousel-item.active');
+                var $next = $(e.relatedTarget);
+
+                // Smooth transition effect
+                $active.addClass('fade-out');
+                $next.addClass('fade-in');
+
+                setTimeout(function() {
+                    $active.removeClass('fade-out');
+                    $next.removeClass('fade-in');
+                }, 200);
+            });
+
+            // Auto-play pause on hover
+            $('#modernAdsCarousel').hover(
+                function() {
+                    $(this).carousel('pause');
+                },
+                function() {
+                    $(this).carousel('cycle');
+                }
+            );
+
+            // Enhanced click tracking for ads
+            $('.ad-visit-btn').on('click', function(e) {
+                var adTitle = $(this).closest('.ad-card').find('.ad-title').text();
+                var adLink = $(this).attr('href');
+
+                console.log('Ad clicked:', adTitle, 'Link:', adLink);
+
+                // Add click animation
+                $(this).addClass('btn-clicked');
+                setTimeout(function() {
+                    $('.ad-visit-btn').removeClass('btn-clicked');
+                }, 200);
+            });
+
+            // Simple carousel initialization
+            var carouselItems = $('#modernAdsCarousel .carousel-item').length;
+
+            if (carouselItems <= 1) {
+                $('#modernAdsCarousel').carousel('pause');
+                $('.carousel-control-prev, .carousel-control-next, .carousel-indicators').hide();
+            } else {
+                $('#modernAdsCarousel').carousel('cycle');
+            }
+        });
+    </script>
+    <style>
+        .btn-active {
+            transform: translateY(0) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* Additional Animation Classes */
+        .fade-out {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-clicked {
+            transform: scale(0.95) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        /* Enhanced Ad Animations */
+        .ad-card {
+            transition: all 0.3s ease;
+        }
+
+        .ad-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .carousel-item {
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        /* Optimized Image Display */
+        .ad-image {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+<!-- Livewire Scripts -->
+<script src="/livewire/livewire.js?id=df3a17f2"   data-csrf="hCm0eMQxYl1TJYHv4RTfNxaxwR3yIoa6QPHSA8HL" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+</body>
+</html>
