@@ -1,0 +1,117 @@
+body {
+  background:#e6e6e6;
+  padding: 50px;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+ 
+}		
+zing-grid {
+  max-width: 1000px;
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/zinggrid-examples.appspot.com/o/premier-league-players%2Fdave-shaft-72647-unsplash.jpg?alt=media&token=3c2a9465-420f-43c0-abc7-a72a5e6b019d');
+  background-size: cover;
+  margin: 30px auto 0 auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;	
+  font-weight: bold;		
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  --zg-head-cell-color: #E83B52;
+  --zg-head-cell-font-size: 11px;
+  --theme-color-primary: #E83B52;
+  --zg-row-card-padding: 0;
+  --zg-select-arrow-color: #ffffff;
+}
+zg-caption {
+  border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+}
+zg-caption,
+zg-pager,
+zg-watermark {
+  font-weight: 900;
+  background: #232323;
+  color: white;
+}	
+zg-control-bar {
+  background: #232323;
+  border-top: 1px solid #7f7f7f;
+}
+zg-body[layout="card"] {
+  align-items: flex-start;
+  background: transparent;
+  min-height:744px;
+  /*grid-template-columns: repeat(auto-fill, minmax(calc(var(--zg-card-columns, 33.3%) - var(--card-gap)), 1fr));*/
+}
+[viewport="tablet-portrait"] zg-body[layout="card"] {
+  --zg-card-columns: 33.33%;
+}
+zg-row[layout="card"] {
+  --zg-row-body-background: #fff;
+  --zg-row-body-background_hover: #fff;
+  margin: 5px;	
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border: 1px solid #E83B52;
+}
+zg-body zg-cell {
+ 	padding-bottom: 0; 
+}
+zg-body zg-cell[text="Team"] {
+  max-width: 170px;
+}
+zg-body zg-cell:nth-child(1) {
+  background: #E83B52;
+  color: white;
+  font-weight: 900;
+  font-size: 20px;
+  padding-bottom: 10px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+zg-body zg-cell:before:nth-child(1) {
+  background: #E83B52;
+  color: white;
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+zg-body zg-cell:nth-child(7) {
+  padding-bottom: 20px;
+}
+img { 
+max-width: 250px; 
+}
+.flag { 
+  margin-right:2px; 
+  font-size:130%; 
+}
+.team--logo { 
+  width:20px; 
+  margin-right: 7px;
+}
+ 
+zg-watermark {
+  border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+}
+ 
+[layout="card"] .player-photo {
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  /*top: 80px;*/
+  display: block;
+  max-height: 80%;
+  transform: translateX(80px);
+}
+ 
+[viewport="mobile"][layout="card"] .player-photo {
+  transform: translateX(70px);
+}
+[layout="card"] .player-photo:before {
+	display: none;
+}
