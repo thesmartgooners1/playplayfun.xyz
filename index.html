@@ -1,15 +1,28 @@
-<zing-grid caption="Popular 2018 Premier League Players" src="https://zinggrid-examples.firebaseio.com/premier-players" pager page-size="6" page-size-options="3,6,9,12,15" layout="card" layout-controls="false">
-    <zg-colgroup>
-        <zg-column type="text" index="playerName"></zg-column>
-        <zg-column type="text" index="nationality" renderer="renderNationality"></zg-column>
-        <zg-column type="text" index="team">
-            <img src="[[index.team.0.teamImage]]" alt="Team N/A" class="team--logo" />
-            <span>[[index.team.0.teamName]]</span>
-        </zg-column>
-        <zg-column type="date" index="playerPosition"></zg-column>
-        <zg-column type="date" index="appearances"></zg-column>
-        <zg-column type="text" index="goals"></zg-column>
-        <zg-column type="text" index="assists"></zg-column>
-        <zg-column type="image" index="photo" cell-class="player-photo"></zg-column>
-    </zg-colgroup>
-</zing-grid>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Football</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>⚽ Live Matches</h1>
+  <p id="status">Connecting...</p>
+</header>
+
+<main id="leagues"></main>
+
+<!-- Match Details Modal -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <span id="close">&times;</span>
+    <div id="matchDetails"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
