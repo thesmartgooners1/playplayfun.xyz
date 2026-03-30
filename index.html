@@ -4,24 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Live Football</title>
+
+  <!-- PWA + Performance -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://api.cameltv.live" crossorigin>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>⚽ Live Matches</h1>
-  <p id="status">Connecting...</p>
+  <h1>⚽ Live Football</h1>
+  <p id="status">Loading matches...</p>
 </header>
 
-<main id="leagues"></main>
-
-<!-- Match Details Modal -->
-<div id="modal" class="modal hidden">
-  <div class="modal-content">
-    <span id="close">&times;</span>
-    <div id="matchDetails"></div>
-  </div>
-</div>
+<main id="matches"></main>
 
 <script src="script.js"></script>
 </body>
