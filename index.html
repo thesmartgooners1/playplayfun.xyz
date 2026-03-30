@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Pyidaungsu+New:wght@400;700&display=swap" rel="stylesheet">
+
 
     <title>HK TV</title>
     <script type="module">
@@ -38,26 +40,76 @@
 
 <body class="pt-5 d-flex flex-column min-vh-100">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top topbar">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top topbar">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="https://i.ibb.co/9mCsbmPZ/IMG-20251108-234822.png" alt="" width="115"
                     height="40" class="d-inline-block align-text-top icon">
             </a>
             <a href="/app">
-                <div class="getapp">
-                    <h4 class="clicktext">HKTV အက်ပ်ရယူရန်</h4>
-                </div>
-            </a>
+            <div class="getapp">
+                <h4 class="clicktext">HKTV အက်ပ်ရယူရန်</h4>
+            </div>
+            </div></a>
+
+
         </div>
     </nav>
 
     <main class="flex-grow-1" style="padding-left: 10px; padding-right:10px;">
         <div class="container my-3 match-bg">
-            <div class="row" id="matches-container">
-                <!-- Live matches will be inserted here -->
+        <div class="row">
+
+                            <div class="col-12 col-lg-4 mb-1" >
+                    <a href="http://socnetv.com/ad-interstitial?url=%252Flive%252F1269">
+                        <div class="match-container">
+                    <div class="match-title">
+                        <img src="https://socnetv.com/api/proxy/image/image_resources/logo/leaguelogo/10609.png" alt=""
+                            class="league-image">
+                        <span class="text">Asian Cup Qualification Playoff</span>
+                    </div>
+                    <div class="match-body">
+                        <div class="club-bg">
+                            <img src="https://socnetv.com/api/proxy/image/image_resources/logo/teamlogo/5910.png"
+                                alt="" class="club-image">
+                        </div>
+
+                                                <div class="date-time">
+                            <span class="text-time">02:30 PM</span>
+                            <span class="text-date">Mar 31</span>
+                        </div>
+                        
+
+                        <div class="club-bg">
+                            <img src="https://socnetv.com/api/proxy/image/image_resources/logo/teamlogo/8307.png"
+                                alt="" class="club-image">
+                        </div>
+
+
+                    </div>
+
+                    <div class = "match-foot">
+                        <div class="club-bg">
+                            <span class="team">Pakistan</span>
+                        </div>
+
+                        <div class="date-time">
+                        </div>
+
+                        <div class="club-bg">
+                            <span class="team">Myanmar</span>
+                        </div>
+                    </div>
+                </div>
+                    </a>
             </div>
+            
+
         </div>
+    </div>
     </main>
 
     <footer class="bg-dark text-white py-3 mt-5">
@@ -68,61 +120,12 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // လက်ရှိနှစ်ကို အလိုအလျောက်ပြောင်းဖို့ JavaScript (optional)
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Function to load live matches
-        async function loadLiveMatches() {
-            try {
-                const response = await fetch("YOUR_API_ENDPOINT_HERE"); // <-- Replace with your API
-                const data = await response.json();
-
-                const container = document.getElementById("matches-container");
-                container.innerHTML = ""; // Clear previous matches
-
-                data.matches.forEach(match => {
-                    const matchCard = `
-                    <div class="col-12 col-lg-4 mb-1">
-                        <a href="${match.link}">
-                            <div class="match-container">
-                                <div class="match-title">
-                                    <img src="${match.leagueLogo}" alt="" class="league-image">
-                                    <span class="text">${match.leagueName}</span>
-                                </div>
-                                <div class="match-body">
-                                    <div class="club-bg">
-                                        <img src="${match.homeTeam.logo}" alt="" class="club-image">
-                                    </div>
-                                    <div class="date-time">
-                                        <span class="text-time">${match.time}</span>
-                                        <span class="text-date">${match.date}</span>
-                                    </div>
-                                    <div class="club-bg">
-                                        <img src="${match.awayTeam.logo}" alt="" class="club-image">
-                                    </div>
-                                </div>
-                                <div class="match-foot">
-                                    <div class="club-bg"><span class="team">${match.homeTeam.name}</span></div>
-                                    <div class="club-bg"><span class="team">${match.awayTeam.name}</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    `;
-                    container.insertAdjacentHTML("beforeend", matchCard);
-                });
-            } catch (error) {
-                console.error("Error loading live matches:", error);
-            }
-        }
-
-        // Initial load
-        loadLiveMatches();
-
-        // Refresh every 30 seconds for live updates
-        setInterval(loadLiveMatches, 30000);
     </script>
 </body>
 
 </html>
+
+
