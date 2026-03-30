@@ -1,52 +1,107 @@
-// Store vars
-let emojis = null;
+const leaguesContainer = document.getElementById("leagues");
+const statusText = document.getElementById("status");
+const modal = document.getElementById("modal");
+const matchDetails = document.getElementById("matchDetails");
+const closeBtn = document.getElementById("close");
 
-// Register nationality renderer method
-ZingGrid.registerMethod(renderNationality, 'renderNationality');
+let socket;
 
-function renderNationality(nationality, $cell) {
-    const emoji = renderEmojis(nationality[0].countryFlag, $cell);
-    return `<span class="flag">${emoji}</span> ${nationality[0].country}`;
+function connect() {
+  socket = new WebSocket("wss://ws.kora-api.space/");
+
+  socket.onopen = () => {
+    statusText.textContent = "🟢 Live";
+  };
+
+  socket.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    const matches = data.matches || data.data || data || [];
+    render(matches);
+  };
+
+  socket.onclose = () => {
+    statusText.textContent = "Reconnecting...";
+    setTimeout(connect, 3000);
+  };
 }
 
-// Register emoji renderers
-ZingGrid.registerMethod(renderEmojis, 'renderEmojis');
+function render(matches) {
+  leaguesContainer.innerHTML = "";
 
-function renderEmojis(shortcode, cellRef, $cell) {
-    let returnText = shortcode;
-    if (emojis) {
-        for (let emoji in emojis) {
-            if (shortcode === emojis[emoji].shortname) {
-                returnText = emojis[emoji].emoji;
-                cellRef.children[0].classList.add('loaded');
-                break;
-            }
-        }
-    }
-    return returnText;
-}
+  // GROUP BY LEAGUE
+  const leagues = {};
 
-// Fetch emojis
-window.onload = function() {
-    // Store grid ref
-    const zgRef = document.querySelector('zing-grid');
-    zgRef.executeOnLoad(function() {
-        const ENDPOINT = 'https://gist.githubusercontent.com/oliveratgithub/0bf11a9aff0d6da7b46f1490f86a71eb/raw/ac8dde8a374066bcbcf44a8296fc0522c7392244/emojis.json';
-        fetch(ENDPOINT)
-            .then(r => r.json())
-            .then(r => {
-                emojis = r.emojis;
-                // Refresh the grid to render the emoji column
-                if (zgRef) {
-                  // refresh all first columns so emoji
-                  // can re-render
-                  zgRef.refresh(0,1); 
-                  zgRef.refresh(1,1); 
-                  zgRef.refresh(2,1); 
-                  zgRef.refresh(3,1); 
-                  zgRef.refresh(4,1); 
-                  zgRef.refresh(5,1);  
-                }
-            });
+  matches.forEach(m => {
+    const league = m.league || "Other";
+    if (!leagues[league]) leagues[league] = [];
+    leagues[league].push(m);
+  });
+
+  for (let league in leagues) {
+    const leagueDiv = document.createElement("div");
+    leagueDiv.className = "league";
+
+    leagueDiv.innerHTML = `<div class="league-title">${league}</div>`;
+
+    leagues[league].forEach(match => {
+      const div = document.createElement("div");
+      div.className = "match";
+
+      const home = match.home || match.homeTeam;
+      const away = match.away || match.awayTeam;
+
+      const homeLogo = match.homeLogo || "https://via.placeholder.com/24";
+      const awayLogo = match.awayLogo || "https://via.placeholder.com/24";
+
+      const score = match.score || `${match.homeScore || 0} - ${match.awayScore || 0}`;
+
+      div.innerHTML = `
+        <div class="teams">
+          <div class="team">
+            <img src="${homeLogo}">
+            ${home}
+          </div>
+          <div class="team">
+            ${away}
+            <img src="${awayLogo}">
+          </div>
+        </div>
+
+        <div class="score">${score}</div>
+
+        <div class="live">
+          <span class="pulse"></span> LIVE
+        </div>
+      `;
+
+      // CLICK → DETAILS
+      div.onclick = () => showDetails(match);
+
+      leagueDiv.appendChild(div);
     });
+
+    leaguesContainer.appendChild(leagueDiv);
+  }
 }
+
+function showDetails(match) {
+  modal.classList.remove("hidden");
+
+  matchDetails.innerHTML = `
+    <h2>${match.home} vs ${match.away}</h2>
+    <p>Score: ${match.score}</p>
+    <p>Time: ${match.time || "Live"}</p>
+    <hr>
+    <p>Shots: ${match.shots || "-"}</p>
+    <p>Possession: ${match.possession || "-"}</p>
+    <p>Cards: ${match.cards || "-"}</p>
+  `;
+}
+
+closeBtn.onclick = () => modal.classList.add("hidden");
+
+window.onclick = (e) => {
+  if (e.target === modal) modal.classList.add("hidden");
+};
+
+connect();
