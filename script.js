@@ -1,4 +1,3 @@
-const API_KEY = "YOUR_API_KEY"; // Replace with your API key
 const matchesContainer = document.getElementById("matches");
 const statusText = document.getElementById("status");
 
@@ -8,14 +7,15 @@ const closeBtn = document.getElementById("close");
 
 async function fetchLiveMatches() {
   statusText.textContent = "Loading matches...";
-
   try {
-    const res = await fetch("https://v3.football.api-sports.io/fixtures?live=all", {
-      headers: { "x-apisports-key": API_KEY }
-    });
-
+    const res = await fetch("http://localhost:3000/api/live");
     const data = await res.json();
     const matches = data.response;
+
+    if (!matches.length) {
+      statusText.textContent = "No live matches right now";
+      return;
+    }
 
     statusText.textContent = `🟢 ${matches.length} Live Matches`;
     renderMatches(matches);
@@ -55,7 +55,6 @@ function renderMatches(matches) {
 
 function showDetails(match) {
   modal.classList.remove("hidden");
-
   details.innerHTML = `
     <h2>${match.teams.home.name} vs ${match.teams.away.name}</h2>
     <p>League: ${match.league.name}</p>
@@ -68,6 +67,6 @@ function showDetails(match) {
 closeBtn.onclick = () => modal.classList.add("hidden");
 window.onclick = e => { if(e.target===modal) modal.classList.add("hidden") }
 
-// Auto refresh every 30 seconds
+// Auto refresh every 30s
 setInterval(fetchLiveMatches, 30000);
 fetchLiveMatches();
