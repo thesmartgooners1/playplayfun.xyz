@@ -1,37 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Live Match Player</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://socnetv.com/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pyidaungsu+New:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>HK TV</title>
+    <script type="module">
+        import {
+            initializeApp
+        } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import {
+            getAnalytics
+        } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBS4FEL7g1_mJR5Q9ET7v6T3icx9XDz9Jo",
+            authDomain: "hktv-8c251.firebaseapp.com",
+            projectId: "hktv-8c251",
+            storageBucket: "hktv-8c251.firebasestorage.app",
+            messagingSenderId: "18678096701",
+            appId: "1:18678096701:web:6c7365ee4535b281aedb54",
+            measurementId: "G-5Y20QEEY9Q"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </head>
-<body>
-<div class="container py-3">
-    <h3 id="matchTitle">Loading match...</h3>
-    <video id="livePlayer" controls autoplay style="width:100%; max-width:800px;">
-        Your browser does not support the video tag.
-    </video>
-</div>
 
-<script>
-const urlParams = new URLSearchParams(window.location.search);
-const matchId = urlParams.get('matchId');
+<body class="pt-5 d-flex flex-column min-vh-100">
 
-// Fetch match info from your API to get the stream link
-async function loadStream() {
-    try {
-        const response = await fetch(`YOUR_API_ENDPOINT_HERE?matchId=${matchId}`);
-        const data = await response.json();
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top topbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="https://i.ibb.co/9mCsbmPZ/IMG-20251108-234822.png" alt="" width="115"
+                    height="40" class="d-inline-block align-text-top icon">
+            </a>
+            <a href="/app">
+                <div class="getapp">
+                    <h4 class="clicktext">HKTV အက်ပ်ရယူရန်</h4>
+                </div>
+            </a>
+        </div>
+    </nav>
 
-        document.getElementById('matchTitle').textContent = `${data.homeTeam.name} vs ${data.awayTeam.name}`;
-        document.getElementById('livePlayer').src = data.streamUrl; // Your live stream URL
-    } catch (error) {
-        console.error("Failed to load stream:", error);
-    }
-}
+    <main class="flex-grow-1" style="padding-left: 10px; padding-right:10px;">
+        <div class="container my-3 match-bg">
+            <div class="row" id="matches-container">
+                <!-- Live matches will be inserted here -->
+            </div>
+        </div>
+    </main>
 
-loadStream();
-</script>
+    <footer class="bg-dark text-white py-3 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                &copy; <span id="currentYear"></span> HK TV. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Function to load live matches
+        async function loadLiveMatches() {
+            try {
+                const response = await fetch("YOUR_API_ENDPOINT_HERE"); // <-- Replace with your API
+                const data = await response.json();
+
+                const container = document.getElementById("matches-container");
+                container.innerHTML = ""; // Clear previous matches
+
+                data.matches.forEach(match => {
+                    const matchCard = `
+                    <div class="col-12 col-lg-4 mb-1">
+                        <a href="${match.link}">
+                            <div class="match-container">
+                                <div class="match-title">
+                                    <img src="${match.leagueLogo}" alt="" class="league-image">
+                                    <span class="text">${match.leagueName}</span>
+                                </div>
+                                <div class="match-body">
+                                    <div class="club-bg">
+                                        <img src="${match.homeTeam.logo}" alt="" class="club-image">
+                                    </div>
+                                    <div class="date-time">
+                                        <span class="text-time">${match.time}</span>
+                                        <span class="text-date">${match.date}</span>
+                                    </div>
+                                    <div class="club-bg">
+                                        <img src="${match.awayTeam.logo}" alt="" class="club-image">
+                                    </div>
+                                </div>
+                                <div class="match-foot">
+                                    <div class="club-bg"><span class="team">${match.homeTeam.name}</span></div>
+                                    <div class="club-bg"><span class="team">${match.awayTeam.name}</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    `;
+                    container.insertAdjacentHTML("beforeend", matchCard);
+                });
+            } catch (error) {
+                console.error("Error loading live matches:", error);
+            }
+        }
+
+        // Initial load
+        loadLiveMatches();
+
+        // Refresh every 30 seconds for live updates
+        setInterval(loadLiveMatches, 30000);
+    </script>
 </body>
+
 </html>
