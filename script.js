@@ -5,68 +5,71 @@ const modal = document.getElementById("modal");
 const details = document.getElementById("details");
 const closeBtn = document.getElementById("close");
 
-async function fetchLiveMatches() {
-  statusText.textContent = "Loading matches...";
+// 🔥 FREE API
+const API = "https://www.scorebat.com/video-api/v3/";
+
+async function getMatches() {
   try {
-    const res = await fetch("http://localhost:3000/api/live");
+    const res = await fetch(API);
     const data = await res.json();
-    const matches = data.response;
 
-    if (!matches.length) {
-      statusText.textContent = "No live matches right now";
-      return;
-    }
+    console.log(data);
 
-    statusText.textContent = `🟢 ${matches.length} Live Matches`;
-    renderMatches(matches);
+    const matches = data.response || [];
+
+    statusText.textContent = `🟢 ${matches.length} Matches`;
+    render(matches);
 
   } catch (err) {
+    statusText.textContent = "❌ Failed to load";
     console.error(err);
-    statusText.textContent = "❌ Failed to load matches";
   }
 }
 
-function renderMatches(matches) {
+function render(matches) {
   matchesContainer.innerHTML = "";
+
   matches.forEach(match => {
     const div = document.createElement("div");
     div.className = "match";
 
-    const homeLogo = match.teams.home.logo || "";
-    const awayLogo = match.teams.away.logo || "";
-    const homeName = match.teams.home.name;
-    const awayName = match.teams.away.name;
-    const score = `${match.goals.home ?? 0} - ${match.goals.away ?? 0}`;
+    const title = match.title || "Match";
+    const league = match.competition || "League";
+    const date = new Date(match.date).toLocaleString();
 
     div.innerHTML = `
-      <div class="teams">
-        <img src="${homeLogo}" class="team-logo" /> ${homeName}
-        <span>vs</span>
-        <img src="${awayLogo}" class="team-logo" /> ${awayName}
-      </div>
-      <div class="score">${score}</div>
-      <div class="live-pulse"></div>
+      <div class="league">${league}</div>
+      <div class="title">${title}</div>
+      <div class="score">Click to watch highlights</div>
+      <div class="live">🔴 Latest</div>
     `;
 
     div.onclick = () => showDetails(match);
+
     matchesContainer.appendChild(div);
   });
 }
 
 function showDetails(match) {
   modal.classList.remove("hidden");
+
   details.innerHTML = `
-    <h2>${match.teams.home.name} vs ${match.teams.away.name}</h2>
-    <p>League: ${match.league.name}</p>
-    <p>Status: ${match.fixture.status.long}</p>
-    <p>Score: ${match.goals.home} - ${match.goals.away}</p>
-    <p>Venue: ${match.fixture.venue.name}, ${match.fixture.venue.city}</p>
+    <h2>${match.title}</h2>
+    <p>${match.competition}</p>
+    <p>${new Date(match.date).toLocaleString()}</p>
+
+    <div>${match.embed}</div>
   `;
 }
 
 closeBtn.onclick = () => modal.classList.add("hidden");
-window.onclick = e => { if(e.target===modal) modal.classList.add("hidden") }
 
-// Auto refresh every 30s
-setInterval(fetchLiveMatches, 30000);
-fetchLiveMatches();
+window.onclick = (e) => {
+  if (e.target === modal) modal.classList.add("hidden");
+};
+
+// 🔄 Auto refresh
+setInterval(getMatches, 60000);
+
+// 🚀 Start
+getMatches();
