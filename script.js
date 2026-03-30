@@ -1,107 +1,96 @@
-const leaguesContainer = document.getElementById("leagues");
+const matchesContainer = document.getElementById("matches");
 const statusText = document.getElementById("status");
-const modal = document.getElementById("modal");
-const matchDetails = document.getElementById("matchDetails");
-const closeBtn = document.getElementById("close");
 
-let socket;
+// 🔥 Try multiple endpoints (since API is unknown)
+const endpoints = [
+  "https://api.cameltv.live",
+  "https://api.cameltv.live/matches",
+  "https://api.cameltv.live/live"
+];
 
-function connect() {
-  socket = new WebSocket("https://api.cameltv.live");
+async function fetchMatches() {
+  for (let url of endpoints) {
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
 
-  socket.onopen = () => {
-    statusText.textContent = "🟢 Live";
-  };
+      console.log("API RESPONSE:", data);
 
-  socket.onmessage = (event) => {
-    const data = JSON.parse(event.data);
-    const matches = data.matches || data.data || data || [];
-    render(matches);
-  };
+      const matches = extractMatches(data);
 
-  socket.onclose = () => {
-    statusText.textContent = "Reconnecting...";
-    setTimeout(connect, 3000);
-  };
+      if (matches.length) {
+        statusText.textContent = "🟢 Live Matches";
+        render(matches);
+        return;
+      }
+
+    } catch (err) {
+      console.warn("Failed:", url);
+    }
+  }
+
+  statusText.textContent = "❌ API not working";
+}
+
+// 🧠 Smart extractor (handles unknown formats)
+function extractMatches(data) {
+  if (!data) return [];
+
+  if (Array.isArray(data)) return data;
+
+  if (data.matches) return data.matches;
+  if (data.data) return data.data;
+  if (data.response) return data.response;
+
+  return [];
 }
 
 function render(matches) {
-  leaguesContainer.innerHTML = "";
+  matchesContainer.innerHTML = "";
 
-  // GROUP BY LEAGUE
-  const leagues = {};
+  matches.forEach(match => {
+    const home =
+      match.home ||
+      match.homeTeam ||
+      match.team1 ||
+      "Home";
 
-  matches.forEach(m => {
-    const league = m.league || "Other";
-    if (!leagues[league]) leagues[league] = [];
-    leagues[league].push(m);
+    const away =
+      match.away ||
+      match.awayTeam ||
+      match.team2 ||
+      "Away";
+
+    const score =
+      match.score ||
+      `${match.homeScore || 0} - ${match.awayScore || 0}`;
+
+    const time =
+      match.time ||
+      match.minute ||
+      match.status ||
+      "Live";
+
+    const div = document.createElement("div");
+    div.className = "match";
+
+    div.innerHTML = `
+      <div class="teams">
+        <span>${home}</span>
+        <span>${away}</span>
+      </div>
+
+      <div class="score">${score}</div>
+
+      <div class="time live">🔴 ${time}</div>
+    `;
+
+    matchesContainer.appendChild(div);
   });
-
-  for (let league in leagues) {
-    const leagueDiv = document.createElement("div");
-    leagueDiv.className = "league";
-
-    leagueDiv.innerHTML = `<div class="league-title">${league}</div>`;
-
-    leagues[league].forEach(match => {
-      const div = document.createElement("div");
-      div.className = "match";
-
-      const home = match.home || match.homeTeam;
-      const away = match.away || match.awayTeam;
-
-      const homeLogo = match.homeLogo || "https://via.placeholder.com/24";
-      const awayLogo = match.awayLogo || "https://via.placeholder.com/24";
-
-      const score = match.score || `${match.homeScore || 0} - ${match.awayScore || 0}`;
-
-      div.innerHTML = `
-        <div class="teams">
-          <div class="team">
-            <img src="${homeLogo}">
-            ${home}
-          </div>
-          <div class="team">
-            ${away}
-            <img src="${awayLogo}">
-          </div>
-        </div>
-
-        <div class="score">${score}</div>
-
-        <div class="live">
-          <span class="pulse"></span> LIVE
-        </div>
-      `;
-
-      // CLICK → DETAILS
-      div.onclick = () => showDetails(match);
-
-      leagueDiv.appendChild(div);
-    });
-
-    leaguesContainer.appendChild(leagueDiv);
-  }
 }
 
-function showDetails(match) {
-  modal.classList.remove("hidden");
+// 🔄 Auto refresh every 30s
+setInterval(fetchMatches, 30000);
 
-  matchDetails.innerHTML = `
-    <h2>${match.home} vs ${match.away}</h2>
-    <p>Score: ${match.score}</p>
-    <p>Time: ${match.time || "Live"}</p>
-    <hr>
-    <p>Shots: ${match.shots || "-"}</p>
-    <p>Possession: ${match.possession || "-"}</p>
-    <p>Cards: ${match.cards || "-"}</p>
-  `;
-}
-
-closeBtn.onclick = () => modal.classList.add("hidden");
-
-window.onclick = (e) => {
-  if (e.target === modal) modal.classList.add("hidden");
-};
-
-connect();
+// 🚀 Start
+fetchMatches();
