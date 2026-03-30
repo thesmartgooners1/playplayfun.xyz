@@ -7,7 +7,7 @@ const closeBtn = document.getElementById("close");
 let socket;
 
 function connect() {
-  socket = new WebSocket("wss://ws.kora-api.space/");
+  socket = new WebSocket("https://api.cameltv.live");
 
   socket.onopen = () => {
     statusText.textContent = "🟢 Live";
