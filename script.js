@@ -1,96 +1,75 @@
 const matchesContainer = document.getElementById("matches");
 const statusText = document.getElementById("status");
 
-// 🔥 Try multiple endpoints (since API is unknown)
-const endpoints = [
-  "https://api.cameltv.live",
-  "https://api.cameltv.live/matches",
-  "https://api.cameltv.live/live"
-];
+const modal = document.getElementById("modal");
+const details = document.getElementById("details");
+const closeBtn = document.getElementById("close");
 
-async function fetchMatches() {
-  for (let url of endpoints) {
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
+// 🔥 FREE API
+const API = "https://www.scorebat.com/video-api/v3/";
 
-      console.log("API RESPONSE:", data);
+async function getMatches() {
+  try {
+    const res = await fetch(API);
+    const data = await res.json();
 
-      const matches = extractMatches(data);
+    console.log(data);
 
-      if (matches.length) {
-        statusText.textContent = "🟢 Live Matches";
-        render(matches);
-        return;
-      }
+    const matches = data.response || [];
 
-    } catch (err) {
-      console.warn("Failed:", url);
-    }
+    statusText.textContent = `🟢 ${matches.length} Matches`;
+    render(matches);
+
+  } catch (err) {
+    statusText.textContent = "❌ Failed to load";
+    console.error(err);
   }
-
-  statusText.textContent = "❌ API not working";
-}
-
-// 🧠 Smart extractor (handles unknown formats)
-function extractMatches(data) {
-  if (!data) return [];
-
-  if (Array.isArray(data)) return data;
-
-  if (data.matches) return data.matches;
-  if (data.data) return data.data;
-  if (data.response) return data.response;
-
-  return [];
 }
 
 function render(matches) {
   matchesContainer.innerHTML = "";
 
   matches.forEach(match => {
-    const home =
-      match.home ||
-      match.homeTeam ||
-      match.team1 ||
-      "Home";
-
-    const away =
-      match.away ||
-      match.awayTeam ||
-      match.team2 ||
-      "Away";
-
-    const score =
-      match.score ||
-      `${match.homeScore || 0} - ${match.awayScore || 0}`;
-
-    const time =
-      match.time ||
-      match.minute ||
-      match.status ||
-      "Live";
-
     const div = document.createElement("div");
     div.className = "match";
 
+    const title = match.title || "Match";
+    const league = match.competition || "League";
+    const date = new Date(match.date).toLocaleString();
+
     div.innerHTML = `
-      <div class="teams">
-        <span>${home}</span>
-        <span>${away}</span>
-      </div>
-
-      <div class="score">${score}</div>
-
-      <div class="time live">🔴 ${time}</div>
+      <div class="league">${league}</div>
+      <div class="title">${title}</div>
+      <div class="score">Click to watch highlights</div>
+      <div class="live">🔴 Latest</div>
     `;
+
+    div.onclick = () => showDetails(match);
 
     matchesContainer.appendChild(div);
   });
 }
 
-// 🔄 Auto refresh every 30s
-setInterval(fetchMatches, 30000);
+function showDetails(match) {
+  modal.classList.remove("hidden");
+
+  details.innerHTML = `
+    <h2>${match.title}</h2>
+    <p>${match.competition}</p>
+    <p>${new Date(match.date).toLocaleString()}</p>
+
+    <div>${match.embed}</div>
+  `;
+}
+
+closeBtn.onclick = () => modal.classList.add("hidden");
+
+window.onclick = (e) => {
+  if (e.target === modal) modal.classList.add("hidden");
+};
+
+// 🔄 Auto refresh
+setInterval(getMatches, 60000);
 
 // 🚀 Start
-fetchMatches();
+getMatches();
