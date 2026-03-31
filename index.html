@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Football Live App</title>
+  <title>Football App UI</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>⚽ Live Football</h1>
+<header>
+  <h1>⚽ Football</h1>
+</header>
 
-<div class="player">
-  <video id="video" controls autoplay></video>
-  <div id="match-title"></div>
-</div>
+<nav class="tabs">
+  <button class="active">Matches</button>
+  <button>News</button>
+  <button>Table</button>
+</nav>
 
-<div class="matches" id="match-list"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script src="script.js"></script>
+<div class="matches" id="matches"></div>
 
 </body>
 </html>
