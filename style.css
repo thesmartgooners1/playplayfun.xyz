@@ -1,50 +1,49 @@
 body {
-  background: #0d0d0d;
+  background: #0b0f1a;
   color: white;
   font-family: Arial;
   text-align: center;
 }
 
-.player-container {
+.player {
   position: relative;
 }
 
 video {
-  width: 80%;
+  width: 85%;
   max-width: 900px;
   border-radius: 10px;
 }
 
-#channel-name {
+#match-title {
   position: absolute;
   bottom: 10px;
   left: 10%;
   background: rgba(0,0,0,0.6);
-  padding: 5px 10px;
+  padding: 6px 12px;
 }
 
-.channels {
+.matches {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   margin-top: 20px;
 }
 
-.channel {
-  margin: 10px;
-  cursor: pointer;
-}
-
-.channel img {
-  width: 80px;
-  border-radius: 8px;
-}
-
-.controls button {
+.match {
+  background: #1c2333;
   margin: 10px;
   padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 200px;
 }
 
-.epg {
-  margin-top: 20px;
+.match:hover {
+  background: #2c3550;
+}
+
+.match img {
+  width: 40px;
+  vertical-align: middle;
 }
