@@ -1,311 +1,50 @@
-a {
-    text-decoration: none;
+body {
+  background: #0d0d0d;
+  color: white;
+  font-family: Arial;
+  text-align: center;
 }
 
-.spin-icon {
-    animation: spin 2s linear infinite;
+.player-container {
+  position: relative;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+video {
+  width: 80%;
+  max-width: 900px;
+  border-radius: 10px;
 }
 
-.match-container {
-    background-color: #000000; /* changed to black */
-    margin: 8px auto 8px auto;
-    border-radius: 15px;
+#channel-name {
+  position: absolute;
+  bottom: 10px;
+  left: 10%;
+  background: rgba(0,0,0,0.6);
+  padding: 5px 10px;
 }
 
-.match-bg{
-    padding: 0%;
+.channels {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
-.match-title {
-    background-color: transparent;
-    color: white;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    width: initial;
-    padding: 10px;
+.channel {
+  margin: 10px;
+  cursor: pointer;
 }
 
-.livebg {
-    border-radius: 50px;
-    background-color: #ff0000; /* LIVE red */
-    text-align: center;
-    width: 60px;
-    height: 25px;
-    margin-top: 13px;
-    margin-bottom: 13px;
+.channel img {
+  width: 80px;
+  border-radius: 8px;
 }
 
-.text {
-    color: white;
-    font-weight: bold;
-    text-align: center;
+.controls button {
+  margin: 10px;
+  padding: 10px;
 }
 
-.topbar {
-    background-color: #000000 !important; /* navbar black */
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-.match-body {
-    background-color: #111111; /* dark gray */
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    border-radius: 15px 15px 0px 0px;
-}
-
-.match-foot {
-    background-color: #111111; /* dark gray */
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    border-radius: 0px 0px 15px 15px;
-}
-
-.date-time {
-    display: flex;
-    flex-shrink: 0;
-    flex-grow: 0;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
-    width: 85px;
-    justify-content: center;
-}
-
-.club-bg {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.league-image {
-    width: 20px;
-    height: 20px;
-}
-
-.club-image {
-    width: 50px;
-    height: 50px;
-}
-
-.text {
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-}
-
-.text-time {
-    font-size: 16px;
-    font-weight: bold;
-    color: #EFEA6C; /* yellow for time */
-}
-
-.text-date {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-}
-
-.team {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100px;
-}
-
-.ad-row-container {
-    display: flex;
-    gap: 15px;
-    margin: 25px auto;
-    padding: 0 15px;
-    max-width: 1120px;
-    justify-content: center;
-}
-
-.ad-item {
-    flex: 1;
-    min-width: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.banner-img {
-    width: 100%;
-    height: 100px;
-    display: block;
-    object-fit: fill;
-}
-
-@media (max-width: 768px) {
-    .ad-row-container {
-        flex-direction: column;
-        padding: 0px 25px;
-        gap: 10px;
-    }
-
-    .ad-item {
-        width: 100%;
-        margin-bottom: 0;
-    }
-
-    .banner-img {
-        height: 70px;
-    }
-
-    .icon{
-        width: 100px;
-        height: 35px;
-    }
-}
-
-.navbar-dark .navbar-nav .nav-link.active {
-    color: #ffffff !important;
-    background-color: #0099ff;
-    padding: 8px 15px !important;
-    border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.navbar-dark .navbar-nav .nav-link:not(.active) {
-    padding: 8px 15px !important;
-    border-radius: 20px;
-}
-
-@media (max-width: 991.98px) {
-    .navbar-dark .navbar-nav .nav-link.active {
-        padding: 10px 15px !important;
-        display: block;
-        margin: 5px 0;
-    }
-}
-
-.content-container {
-    background-color: #000000; /* black card */
-    padding: 25px 35px;
-    max-width: 500px;
-    margin: 8px auto;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.match-body-detail {
-    background-color: transparent;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-}
-
-.link-content-container {
-    background-color: #000000; /* black card */
-    padding: 25px 35px;
-    max-width: 500px;
-    margin: 8px auto;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.link-container {
-    background-color: #222222; /* dark red replaced with darker blackish red */
-    padding: 5px 35px;
-    max-width: 500px;
-    text-align: center;
-    margin: 5px auto 8px auto;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.link-name {
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.content-text{
-    color: #EFEFEF;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: 'Pyidaungsu', Arial, sans-serif;
-}
-
-.text-bg{
-    display: flex;
-    margin: 0px auto;
-    padding-left: 8px;
-    max-width: 500px;
-    text-align: start;
-    justify-content: start;
-}
-
-.ad-card img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: fill;
-}
-
-.ad-card {
-    max-width: 500px;
-    height: 60px;
-    margin: 15px auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    background-color: #222222; /* dark ad card */
-    border: 1px solid #333333;
-}
-
-.app-text{
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    font-family: 'Pyidaungsu', Arial, sans-serif;
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-.getapp{
-    background-color: #000000;
-    height: 35px;
-    width: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    border-style: outset;
-    border-color: white;
-}
-
-.clicktext{
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Pyidaungsu', Arial, sans-serif;
-}
-
-.bg-app{
-    display: flex;
-    align-items: center;
+.epg {
+  margin-top: 20px;
 }
