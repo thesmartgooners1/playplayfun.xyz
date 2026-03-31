@@ -2,34 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Advanced TV App</title>
+  <title>Football Live App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app">
+<h1>⚽ Live Football</h1>
 
-  <div class="player-container">
-    <video id="video" controls></video>
-    <div id="channel-name"></div>
-  </div>
-
-  <div class="controls">
-    <button onclick="prevChannel()">⬅ Prev</button>
-    <button onclick="nextChannel()">Next ➡</button>
-    <button onclick="toggleFullscreen()">⛶ Fullscreen</button>
-  </div>
-
-  <div class="channels" id="channel-list"></div>
-
-  <div class="epg">
-    <h3>📅 TV Schedule</h3>
-    <ul id="epg-list"></ul>
-  </div>
-
+<div class="player">
+  <video id="video" controls autoplay></video>
+  <div id="match-title"></div>
 </div>
+
+<div class="matches" id="match-list"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
