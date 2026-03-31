@@ -1,74 +1,53 @@
-const video = document.getElementById("video");
-const matchTitle = document.getElementById("match-title");
-const matchList = document.getElementById("match-list");
-
-let hls;
-
-// ⚽ Match Data (demo streams)
 const matches = [
   {
-    title: "Manchester United vs Liverpool",
-    teams: ["MU", "LIV"],
-    logos: [
-      "https://via.placeholder.com/40?text=MU",
-      "https://via.placeholder.com/40?text=LIV"
-    ],
-    stream: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-    time: "Live Now"
+    home: "Manchester United",
+    away: "Liverpool",
+    homeLogo: "https://via.placeholder.com/30?text=MU",
+    awayLogo: "https://via.placeholder.com/30?text=LIV",
+    score: "2 - 1",
+    status: "LIVE"
   },
   {
-    title: "Barcelona vs Real Madrid",
-    teams: ["BAR", "RMA"],
-    logos: [
-      "https://via.placeholder.com/40?text=BAR",
-      "https://via.placeholder.com/40?text=RMA"
-    ],
-    stream: "https://test-streams.mux.dev/test_001/stream.m3u8",
-    time: "Live Now"
+    home: "Barcelona",
+    away: "Real Madrid",
+    homeLogo: "https://via.placeholder.com/30?text=BAR",
+    awayLogo: "https://via.placeholder.com/30?text=RMA",
+    score: "0 - 0",
+    status: "45'"
+  },
+  {
+    home: "Bayern",
+    away: "Dortmund",
+    homeLogo: "https://via.placeholder.com/30?text=BAY",
+    awayLogo: "https://via.placeholder.com/30?text=DOR",
+    score: "vs",
+    status: "20:00"
   }
 ];
 
-// ▶ Load Stream
-function playMatch(index) {
-  const match = matches[index];
-  matchTitle.innerText = match.title;
+const container = document.getElementById("matches");
 
-  if (hls) hls.destroy();
+matches.forEach(match => {
+  const card = document.createElement("div");
+  card.className = "match-card";
 
-  if (Hls.isSupported()) {
-    hls = new Hls();
-    hls.loadSource(match.stream);
-    hls.attachMedia(video);
-  } else {
-    video.src = match.stream;
-  }
+  card.innerHTML = `
+    <div class="teams">
+      <div class="team">
+        <img src="${match.homeLogo}">
+        ${match.home}
+      </div>
 
-  video.play();
-}
+      <div class="score">${match.score}</div>
 
-// 🎮 Render Matches
-matches.forEach((match, i) => {
-  const div = document.createElement("div");
-  div.className = "match";
+      <div class="team">
+        <img src="${match.awayLogo}">
+        ${match.away}
+      </div>
+    </div>
 
-  div.innerHTML = `
-    <img src="${match.logos[0]}"> 
-    vs 
-    <img src="${match.logos[1]}">
-    <p>${match.title}</p>
-    <small>${match.time}</small>
+    <div class="status">${match.status}</div>
   `;
 
-  div.onclick = () => playMatch(i);
-  matchList.appendChild(div);
+  container.appendChild(card);
 });
-
-// 🎛 Keyboard Controls
-document.addEventListener("keydown", (e) => {
-  if (e.key === "f") video.requestFullscreen();
-  if (e.key === "ArrowUp") video.volume += 0.1;
-  if (e.key === "ArrowDown") video.volume -= 0.1;
-});
-
-// ▶ Start first match
-playMatch(0);
