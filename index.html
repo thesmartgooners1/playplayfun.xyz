@@ -2,22 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Football App UI</title>
+  <title>Play Play Fun</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
 <body>
 
-<header>
-  <h1>⚽ Football</h1>
-</header>
+<!--
+  MovieVault - Movie Rental and Streaming Web App
+  ------------------------------------------------
+  Project Description:
+  This project allows users to browse, filter, rent, and add movies to their watchlist.
+  Users can view movies by genre, see new releases, manage their rentals, and checkout
+  with rental duration options.
 
-<nav class="tabs">
-  <button class="active">Matches</button>
-  <button>News</button>
-  <button>Table</button>
-</nav>
+  Credit:
+  All movie images, posters, and content are used for educational and demonstration purposes only.
+  Credit goes to the respective owners of the videos, movies, and media content.
+-->
 
-<div class="matches" id="matches"></div>
 
-</body>
-</html>
+
+
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">MovieVault</div>
+    <nav class="nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#new-releases">New Releases</a>
+      <a href="#genres">Genres</a>
+      <a href="#my-rentals">My Rentals</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Rent. Watch. Relive the Classics.</h1>
+      <p>Stream your favorite films or rent them for later — relive cinema history anytime.</p>
+      <button class="btn btn-primary">Browse Movies</button>
+    </div>
+  </section>
+
+  <!-- New Releases / Movies Grid -->
+  <section class="movies-section" id="new-releases">
+    <h2>New Releases</h2>
+    <div class="movie-grid" id="movieGrid"></div>
+  </section>
+
+  <!-- Genres -->
+  <section class="genres-section" id="genres">
+    <h2>Genres</h2>
+    <div class="genre-buttons">
+      <button class="btn-genre" data-genre="All">All</button>
+      <button class="btn-genre" data-genre="Action">Action</button>
+      <button class="btn-genre" data-genre="Sci-Fi">Sci-Fi</button>
+      <button class="btn-genre" data-genre="Drama">Drama</button>
+      <button class="btn-genre" data-genre="Thriller">Thriller</button>
+    </div>
+  </section>
+
+  <!-- My Rentals -->
+  <section class="rentals-section" id="my-rentals">
+    <h2>My Rentals</h2>
+    <div id="rentedMovies">Your rented movies will appear here.</div>
+    <button class="btn btn-secondary" id="clearRentals">Clear Rentals</button>
+  </section>
+</div>
+
+<!-- Movie Modal -->
+<div class="modal" id="movieModal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <img class="modal-poster" id="modalPoster" />
+    <div class="modal-info">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+      <div class="modal-buttons">
+        <button class="btn btn-primary" id="rentBtn">Rent</button>
+        <button class="btn btn-secondary" id="watchBtn">Add to Watchlist</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cart Panel -->
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h2>Your Rentals</h2>
+    <span class="close-cart" id="closeCart">&times;</span>
+  </div>
+  <div id="cartItems" class="cart-items"></div>
+  <button class="btn btn-primary checkout-btn" id="checkoutBtn">Checkout</button>
+</div>
+
+<!-- Watchlist Panel -->
+<div class="watchlist-panel" id="watchlistPanel">
+  <div class="cart-header">
+    <h2>My Watchlist</h2>
+    <span class="close-cart" id="closeWatchlist">&times;</span>
+  </div>
+  <div id="watchlistItems" class="cart-items"></div>
+</div>
+
+<!-- Floating Buttons -->
+<div class="cart-button" id="cartButton">🛒 <span id="cartCount">0</span></div>
+<div class="cart-button" id="watchlistButton">⭐ <span id="watchlistCount">0</span></div>
+
+<!-- Checkout Modal -->
+<div class="checkout-modal" id="checkoutModal">
+  <div class="checkout-content">
+    <span class="close" id="closeCheckout">&times;</span>
+    <h2>Confirm Your Rentals</h2>
+    <div id="checkoutList" class="checkout-list"></div>
+    
+    <label for="duration">Select Rental Duration:</label>
+    <select id="rentalDuration">
+      <option value="1">1 Day ($2)</option>
+      <option value="3">3 Days ($5)</option>
+      <option value="7">1 Week ($10)</option>
+    </select>
+    
+    <div class="total-price" id="totalPrice">Total: $0</div>
+    
+    <button class="btn btn-primary" id="confirmCheckout">Confirm Rental</button>
+  </div>
+</div>
